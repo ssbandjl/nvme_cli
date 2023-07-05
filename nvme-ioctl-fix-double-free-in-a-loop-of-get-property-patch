@@ -1,0 +1,30 @@
+commit d16e1d2784a48c9b25e58a0e821c737670c6cdc8
+Author: Minwoo Im <minwoo.im@samsung.com>
+Date:   Wed Apr 24 01:46:29 2019 +0100
+
+    ioctl: Fix double-free in a loop of get_property
+    
+    As it was reported, *pbar could be double-freed in case
+    get_property_helper() fails in the middle of the loop.
+    
+    This issue was reported by Ken Heitke on:
+      https://github.com/linux-nvme/nvme-cli/pull/471
+    
+    Signed-off-by: Minwoo Im <minwoo.im@samsung.com>
+
+diff --git a/nvme-ioctl.c b/nvme-ioctl.c
+index 4cf7aeb..16fdc66 100644
+--- a/nvme-ioctl.c
++++ b/nvme-ioctl.c
+@@ -626,8 +626,10 @@ int nvme_get_properties(int fd, void **pbar)
+ 		err = get_property_helper(fd, offset, *pbar + offset, &advance);
+ 		if (!err)
+ 			ret = 0;
+-		else
++		else {
+ 			free(*pbar);
++			break;
++		}
+ 	}
+ 
+ 	return ret;

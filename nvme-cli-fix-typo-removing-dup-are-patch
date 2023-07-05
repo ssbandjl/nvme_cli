@@ -1,0 +1,21 @@
+commit 0c2fef91167a8a18b00a295cc6111fd874c8aa22
+Author: Simon Schricker <sschricker@suse.de>
+Date:   Thu Apr 11 11:23:16 2019 +0200
+
+    nvme-cli: fix typo, removing the duplicate 'are'
+    
+    Signed-off-by: Simon Schricker <sschricker@suse.de>
+
+diff --git a/Documentation/nvme-netapp-ontapdevices.txt b/Documentation/nvme-netapp-ontapdevices.txt
+index 8eaa73f..c292758 100644
+--- a/Documentation/nvme-netapp-ontapdevices.txt
++++ b/Documentation/nvme-netapp-ontapdevices.txt
+@@ -13,7 +13,7 @@ SYNOPSIS
+ DESCRIPTION
+ -----------
+ Display information about ONTAP devices on the host. The ONTAP devices are
+-are identified using the Identify Controller data.
++identified using the Identify Controller data.
+ 
+ OPTIONS
+ -------

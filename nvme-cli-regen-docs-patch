@@ -1,0 +1,153 @@
+commit 87438229b1dbbbce599cf24a820665abc571a5dc
+Author: Keith Busch <keith.busch@intel.com>
+Date:   Mon Apr 15 08:38:14 2019 -0600
+
+    Regen docs
+    
+    Signed-off-by: Keith Busch <keith.busch@intel.com>
+
+diff --git a/Documentation/nvme-connect-all.1 b/Documentation/nvme-connect-all.1
+index 07fa229..2d79d41 100644
+--- a/Documentation/nvme-connect-all.1
++++ b/Documentation/nvme-connect-all.1
+@@ -2,12 +2,12 @@
+ .\"     Title: nvme-connect-all
+ .\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+ .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+-.\"      Date: 04/08/2019
++.\"      Date: 04/15/2019
+ .\"    Manual: NVMe Manual
+ .\"    Source: NVMe
+ .\"  Language: English
+ .\"
+-.TH "NVME\-CONNECT\-ALL" "1" "04/08/2019" "NVMe" "NVMe Manual"
++.TH "NVME\-CONNECT\-ALL" "1" "04/15/2019" "NVMe" "NVMe Manual"
+ .\" -----------------------------------------------------------------
+ .\" * Define some portability stuff
+ .\" -----------------------------------------------------------------
+diff --git a/Documentation/nvme-connect.1 b/Documentation/nvme-connect.1
+index 2b2b80d..2e20942 100644
+--- a/Documentation/nvme-connect.1
++++ b/Documentation/nvme-connect.1
+@@ -2,12 +2,12 @@
+ .\"     Title: nvme-connect
+ .\"    Author: [see the "AUTHORS" section]
+ .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+-.\"      Date: 04/08/2019
++.\"      Date: 04/15/2019
+ .\"    Manual: NVMe Manual
+ .\"    Source: NVMe
+ .\"  Language: English
+ .\"
+-.TH "NVME\-CONNECT" "1" "04/08/2019" "NVMe" "NVMe Manual"
++.TH "NVME\-CONNECT" "1" "04/15/2019" "NVMe" "NVMe Manual"
+ .\" -----------------------------------------------------------------
+ .\" * Define some portability stuff
+ .\" -----------------------------------------------------------------
+diff --git a/Documentation/nvme-disconnect.1 b/Documentation/nvme-disconnect.1
+index 450484e..8ab10c8 100644
+--- a/Documentation/nvme-disconnect.1
++++ b/Documentation/nvme-disconnect.1
+@@ -2,12 +2,12 @@
+ .\"     Title: nvme-disconnect
+ .\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+ .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+-.\"      Date: 04/08/2019
++.\"      Date: 04/15/2019
+ .\"    Manual: NVMe Manual
+ .\"    Source: NVMe
+ .\"  Language: English
+ .\"
+-.TH "NVME\-DISCONNECT" "1" "04/08/2019" "NVMe" "NVMe Manual"
++.TH "NVME\-DISCONNECT" "1" "04/15/2019" "NVMe" "NVMe Manual"
+ .\" -----------------------------------------------------------------
+ .\" * Define some portability stuff
+ .\" -----------------------------------------------------------------
+diff --git a/Documentation/nvme-discover.1 b/Documentation/nvme-discover.1
+index 57e0804..04f13a7 100644
+--- a/Documentation/nvme-discover.1
++++ b/Documentation/nvme-discover.1
+@@ -2,12 +2,12 @@
+ .\"     Title: nvme-discover
+ .\"    Author: [see the "AUTHORS" section]
+ .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+-.\"      Date: 04/08/2019
++.\"      Date: 04/15/2019
+ .\"    Manual: NVMe Manual
+ .\"    Source: NVMe
+ .\"  Language: English
+ .\"
+-.TH "NVME\-DISCOVER" "1" "04/08/2019" "NVMe" "NVMe Manual"
++.TH "NVME\-DISCOVER" "1" "04/15/2019" "NVMe" "NVMe Manual"
+ .\" -----------------------------------------------------------------
+ .\" * Define some portability stuff
+ .\" -----------------------------------------------------------------
+diff --git a/Documentation/nvme-netapp-ontapdevices.1 b/Documentation/nvme-netapp-ontapdevices.1
+index 94c4ac2..b74b7db 100644
+--- a/Documentation/nvme-netapp-ontapdevices.1
++++ b/Documentation/nvme-netapp-ontapdevices.1
+@@ -2,12 +2,12 @@
+ .\"     Title: nvme-netapp-ontapdevices
+ .\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+ .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+-.\"      Date: 04/08/2019
++.\"      Date: 04/15/2019
+ .\"    Manual: NVMe Manual
+ .\"    Source: NVMe
+ .\"  Language: English
+ .\"
+-.TH "NVME\-NETAPP\-ONTAPD" "1" "04/08/2019" "NVMe" "NVMe Manual"
++.TH "NVME\-NETAPP\-ONTAPD" "1" "04/15/2019" "NVMe" "NVMe Manual"
+ .\" -----------------------------------------------------------------
+ .\" * Define some portability stuff
+ .\" -----------------------------------------------------------------
+@@ -36,7 +36,7 @@ nvme-netapp-ontapdevices \- Display information about ONTAP devices
+ .fi
+ .SH "DESCRIPTION"
+ .sp
+-Display information about ONTAP devices on the host\&. The ONTAP devices are are identified using the Identify Controller data\&.
++Display information about ONTAP devices on the host\&. The ONTAP devices are identified using the Identify Controller data\&.
+ .SH "OPTIONS"
+ .PP
+ \-o <fmt>, \-\-output\-format=<fmt>
+diff --git a/Documentation/nvme-netapp-ontapdevices.html b/Documentation/nvme-netapp-ontapdevices.html
+index 7bf1ca0..29f4bda 100644
+--- a/Documentation/nvme-netapp-ontapdevices.html
++++ b/Documentation/nvme-netapp-ontapdevices.html
+@@ -755,7 +755,7 @@ nvme-netapp-ontapdevices(1) Manual Page
+ <h2 id="_description">DESCRIPTION</h2>
+ <div class="sectionbody">
+ <div class="paragraph"><p>Display information about ONTAP devices on the host. The ONTAP devices are
+-are identified using the Identify Controller data.</p></div>
++identified using the Identify Controller data.</p></div>
+ </div>
+ </div>
+ <div class="sect1">
+@@ -803,7 +803,7 @@ Display information, in a column-based format, for ONTAP devices.
+ <div id="footnotes"><hr /></div>
+ <div id="footer">
+ <div id="footer-text">
+-Last updated 2019-04-08 14:49:24 MDT
++Last updated 2019-04-15 08:37:59 MDT
+ </div>
+ </div>
+ </body>
+diff --git a/Documentation/nvme-show-regs.1 b/Documentation/nvme-show-regs.1
+index 4372d82..327bf9d 100644
+--- a/Documentation/nvme-show-regs.1
++++ b/Documentation/nvme-show-regs.1
+@@ -2,12 +2,12 @@
+ .\"     Title: nvme-id-ns
+ .\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+ .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+-.\"      Date: 04/08/2019
++.\"      Date: 04/15/2019
+ .\"    Manual: NVMe Manual
+ .\"    Source: NVMe
+ .\"  Language: English
+ .\"
+-.TH "NVME\-ID\-NS" "1" "04/08/2019" "NVMe" "NVMe Manual"
++.TH "NVME\-ID\-NS" "1" "04/15/2019" "NVMe" "NVMe Manual"
+ .\" -----------------------------------------------------------------
+ .\" * Define some portability stuff
+ .\" -----------------------------------------------------------------

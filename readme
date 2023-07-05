@@ -1,0 +1,47 @@
+git remote add upstream https://github.com/linux-nvme/nvme-cli.git
+git fetch upstream
+git checkout -b v1.8.1
+
+client
+nvme discover -t rdma -a 192.168.80.100 -s 4420 #-s service id, port
+nvme connect -t rdma -n "nqn.2016-06.io.spdk:cnode1" -a 192.168.80.100 -s 4420
+
+gdb --args nvme discover -t rdma -a 172.17.29.217 -s 4420 -> admin_passthru
+gdb --args /usr/sbin/nvme discover -t rdma -s 4420 -a 172.17.29.217
+nvme.c -> main -> int main(int argc, char **argv)
+handle_plugin -> int handle_plugin
+plugin->commands[i]
+cmd->fn(argc, argv, cmd, plugin) -> static int discover_cmd
+  discover(desc, argc, argv, false) -> int discover(const char *desc, int argc, char **argv, bool connect)
+    build_options -> static int build_options
+    static int do_discover(char *argstr, bool connect) -> nqn=nqn.2014-08.org.nvmexpress.discovery,transport=rdma,traddr=172.17.29.217,trsvcid=4420,hostnqn=nqn.2014-08.org.nvmexpress:uuid:e4a72828-9b7f-454f-ab8a-60b2c57e2439,hostid=cee6f16a-0183-4d00-ac0f-58
+      add_ctrl -> static int add_ctrl(const char *argstr)
+        open(PATH_NVME_FABRICS, O_RDWR)
+        write(fd, argstr, len) nqn=nqn.2014-08.org.nvmexpress.discovery,transport=rdma,traddr=175.17.53.73,trsvcid=4420,hostnqn=nqn.2014-08.org.nvmexpress:uuid:a8dce057-b5a2-492e-8da3-9cf328f401c7,hostid=a20d3ab6-2c0a-4335-8552-305
+        read(fd, buf, BUF_SIZE)
+      nvmf_get_log_page_discovery -> static int nvmf_get_log_page_discovery
+        nvme_discovery_log
+      remove_ctrl
+      nvmf_get_log_page_discovery -> static int nvmf_get_log_page_discovery -> /dev/nvme0
+        nvme_discovery_log -> int nvme_get_log -> nvme_get_log13 -> .opcode		= nvme_admin_get_log_page -> return ioctl(fd, ioctl_cmd, cmd)
+        enum nvme_admin_opcode nvme管理命令 -> linux/nvme.h
+      remove_ctrl
+      case DISC_OK
+      ret = connect_ctrls(log, numrec)
+      case DISC_NO_LOG
+    connect_ctrls
+
+
+
+#define PATH_NVME_FABRICS	"/dev/nvme-fabrics"
+
+ 
+
+nvme connect -t rdma -n "nqn.2016-06.io.spdk:cnode1" -a 192.168.80.100 -s 4420
+...
+connect_cmd -> int connect
+  argconfig_parse
+  build_options
+  add_ctrl
+
+
