@@ -10,7 +10,7 @@ gdb --args nvme discover -t rdma -a 172.17.29.217 -s 4420 -> admin_passthru
 gdb --args /usr/sbin/nvme discover -t rdma -s 4420 -a 172.17.29.217
 nvme.c -> main -> int main(int argc, char **argv)
 handle_plugin -> int handle_plugin
-plugin->commands[i]
+plugin->commands[i] -> COMMAND_LIST -> ENTRY("discover", "Discover NVMeoF subsystems", discover_cmd)
 cmd->fn(argc, argv, cmd, plugin) -> static int discover_cmd
   discover(desc, argc, argv, false) -> int discover(const char *desc, int argc, char **argv, bool connect)
     build_options -> static int build_options
@@ -37,11 +37,29 @@ cmd->fn(argc, argv, cmd, plugin) -> static int discover_cmd
 
  
 
-nvme connect -t rdma -n "nqn.2016-06.io.spdk:cnode1" -a 192.168.80.100 -s 4420
-...
+gdb --args nvme connect -t rdma -n "nqn.2022-06.io.spdk:cnode216" -a 172.17.29.217 -s 4420
+... -> ENTRY("connect", "Connect to NVMeoF subsystem", connect_cmd)
 connect_cmd -> int connect
-  argconfig_parse
+  ret = argconfig_parse(argc, argv, desc, command_line_options, &cfg
   build_options
-  add_ctrl
+  instance = add_ctrl(argstr) -> static int add_ctrl
+    fd = open(PATH_NVME_FABRICS, O_RDWR) -> PATH_NVME_FABRICS	"/dev/nvme-fabrics"
+    if (write(fd, argstr, len)
+    len = read(fd, buf, BUF_SIZE)
+    case OPT_INSTANCE
+
+
+
+
+# 与target 端 nvme ssd 断开连接
+nvme disconnect -n nqn.2022-06.io.spdk:cnode216
+
+
+[root@node215 nvme-cli-1.8.1]# nvme list
+Node             SN                   Model                                    Namespace Usage                      Format           FW Rev  
+---------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
+/dev/nvme0n1     SPDK00000000000001   SPDK_Controll                            1         536.87  MB / 536.87  MB      2 KiB +  0 B   21.10
+
+
 
 
